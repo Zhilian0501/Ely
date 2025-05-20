@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>加入 ELY 伺服器</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/join.css" />
+  <script src="assets/js/join.js" defer></script>
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <div id="nav-placeholder"></div>
+
+  <main class="join-main">
+    <section class="form-section">
+      <h1>ELY 入服考試</h1>
+      <p>請完成以下 10 題考試並填寫必要資訊，否則無法申請加入伺服器。</p>
+
+      <form id="exam-form">
+        <div id="questions-container"></div>
+
+        <hr />
+
+        <label for="region">玩家地區（如 台南市北區）</label>
+        <input type="text" id="region" name="region" required />
+
+        <label for="mcid">Minecraft ID</label>
+        <input type="text" id="mcid" name="mcid" required />
+
+        <label for="version">遊玩版本（如 Java 1.21.4）</label>
+        <input type="text" id="version" name="version" required />
+
+        <label>
+          <input type="checkbox" id="discord-joined" required />
+          我已加入 ELY Discord 群組
+        </label>
+
+        <button type="submit">送出申請</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- 頁尾 -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // 防止跳轉後回來繼續填寫：強制重新整理
+    if (performance.navigation.type === 1) {
+      sessionStorage.clear();
+    } else if (!sessionStorage.getItem("started")) {
+      location.reload();
+    }
+
+    // 載入 nav 和 footer
+    fetch("components/nav.html").then(res => res.text()).then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+    fetch("components/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+
+    // 標記開始狀態
+    sessionStorage.setItem("started", "true");
+  </script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("card-visible");
+    });
+  });
+
+  document.querySelectorAll('.event-card, .kingdom-card, .question-block')
+    .forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.join-main {
+  padding: 40px 20px;
+}
+
+.form-section {
+  background: #fff;
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.question-block {
+  margin-bottom: 20px;
+}
+
+.question-block label {
+  display: block;
+  margin-left: 20px;
+}
+
+input[type="text"], input[type="radio"] {
+  margin-top: 5px;
+}
+
+button {
+  background: #2b4d70;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}

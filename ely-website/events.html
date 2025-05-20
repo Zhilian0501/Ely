@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELY伺服器｜活動公告</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/events.css" />
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <div id="nav-placeholder"></div>
+
+  <main class="events-main">
+    <h1>ELY 最新活動公告</h1>
+    <section class="event-list">
+
+      <article class="event-card">
+        <h2>§ 王國建築大賽</h2>
+        <p>活動時間：2025/06/01 ～ 2025/06/10</p>
+        <p>參加者需組隊完成特定主題建築，優勝隊伍將獲得稀有 Ely 裝備與專屬稱號。</p>
+      </article>
+
+      <article class="event-card">
+        <h2>§ 王國問答週</h2>
+        <p>活動時間：2025/06/15 ～ 2025/06/18</p>
+        <p>每日將公布 Ely 世界相關題目，答對可獲得 Ely 幣與限量裝飾品。</p>
+      </article>
+
+      <!-- 更多活動可持續新增 -->
+    </section>
+  </main>
+
+  <!-- 頁尾 -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch("components/nav.html").then(res => res.text()).then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+    fetch("components/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+  </script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("card-visible");
+    });
+  });
+
+  document.querySelectorAll('.event-card, .kingdom-card, .question-block')
+    .forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

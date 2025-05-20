@@ -1,0 +1,19 @@
+.events-main {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.event-card {
+  background: #fff;
+  padding: 20px;
+  border-left: 5px solid #2b4d70;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}

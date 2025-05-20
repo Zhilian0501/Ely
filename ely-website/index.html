@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELY伺服器｜首頁</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+  <script src="assets/js/nav.js" defer></script>
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <div id="nav-placeholder"></div>
+
+  <!-- 首頁內容 -->
+  <header class="hero">
+    <h1>歡迎來到 ELY Minecraft 伺服器</h1>
+    <p>探索、建設、冒險，打造屬於你的王國</p>
+  </header>
+
+  <section class="carousel">
+    <div class="carousel-container">
+      <img src="assets/img/banner1.jpg" alt="圖片1" class="carousel-image">
+      <img src="assets/img/banner2.jpg" alt="圖片2" class="carousel-image">
+      <!-- 更多圖片可加入 -->
+    </div>
+  </section>
+
+  <section class="intro">
+    <h2>伺服器特色</h2>
+    <ul>
+      <li>多國王國制度，真實政治與法律系統</li>
+      <li>和平與戰爭區分，完善的玩家自治規則</li>
+      <li>Discord 與遊戲世界整合，社群活絡</li>
+      <li>獨創活動與任務系統，全年無休更新</li>
+    </ul>
+  </section>
+
+  <!-- 頁尾 -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // 載入 nav 和 footer
+    fetch("components/nav.html").then(res => res.text()).then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+    fetch("components/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+  </script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("card-visible");
+    });
+  });
+
+  document.querySelectorAll('.event-card, .kingdom-card, .question-block')
+    .forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

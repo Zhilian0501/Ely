@@ -1,0 +1,33 @@
+.hero {
+  background: linear-gradient(to right, #a3c1ff, #d6e9ff);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+  padding: 20px;
+}
+
+.carousel-image {
+  width: 100%;
+  max-width: 600px;
+  scroll-snap-align: center;
+  border-radius: 10px;
+}
+
+.intro {
+  padding: 40px 20px;
+}
+
+.intro ul {
+  list-style: square inside;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELY伺服器｜玩家王國</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/kingdoms.css" />
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <div id="nav-placeholder"></div>
+
+  <main class="kingdoms-main">
+    <h1>ELY 世界的王國們</h1>
+
+    <section class="kingdom-list">
+
+      <article class="kingdom-card">
+        <h2>赫斯提亞王國</h2>
+        <p>國王：Yukino</p>
+        <p>特色：科技與法治結合的先進城市，擁有最高智慧塔與學術機構。</p>
+      </article>
+
+      <article class="kingdom-card">
+        <h2>燃拜賽雅聯邦</h2>
+        <p>總統：Rex</p>
+        <p>特色：民主共和制度與自由市場，擁有最多商業據點與港口城市。</p>
+      </article>
+
+      <article class="kingdom-card">
+        <h2>陰蒂國</h2>
+        <p>女王：Lunaria</p>
+        <p>特色：神秘的森林王國，精靈文化盛行，守護自然與魔法資源。</p>
+      </article>
+
+      <!-- 更多王國可持續新增 -->
+    </section>
+  </main>
+
+  <!-- 頁尾 -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch("components/nav.html").then(res => res.text()).then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+    fetch("components/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+  </script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("card-visible");
+    });
+  });
+
+  document.querySelectorAll('.event-card, .kingdom-card, .question-block')
+    .forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

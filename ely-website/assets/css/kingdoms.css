@@ -1,0 +1,19 @@
+.kingdoms-main {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.kingdom-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kingdom-card {
+  background: #fefefe;
+  padding: 20px;
+  border-left: 5px solid #4c78a8;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,41 @@
+.rules-main {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 15px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tab-button.active {
+  background: #2b4d70;
+  color: white;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.tab-pane ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tab-pane li {
+  margin-bottom: 10px;
+}

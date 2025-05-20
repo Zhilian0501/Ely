@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELY伺服器｜規則</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/rules.css">
+  <script src="assets/js/rules.js" defer></script>
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <div id="nav-placeholder"></div>
+
+  <main class="rules-main">
+    <h1>ELY 伺服器法典規章</h1>
+
+    <div class="tabs">
+      <button class="tab-button active" data-target="constitution">憲法</button>
+      <button class="tab-button" data-target="criminal">刑法</button>
+      <button class="tab-button" data-target="civil">民法</button>
+      <button class="tab-button" data-target="trade">交易法</button>
+      <button class="tab-button" data-target="international">國際法</button>
+    </div>
+
+    <div class="tab-content">
+      <div id="constitution" class="tab-pane active"></div>
+      <div id="criminal" class="tab-pane"></div>
+      <div id="civil" class="tab-pane"></div>
+      <div id="trade" class="tab-pane"></div>
+      <div id="international" class="tab-pane"></div>
+    </div>
+  </main>
+
+  <!-- 頁尾 -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // 載入 nav 和 footer
+    fetch("components/nav.html").then(res => res.text()).then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+    fetch("components/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+  </script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("card-visible");
+    });
+  });
+
+  document.querySelectorAll('.event-card, .kingdom-card, .question-block')
+    .forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
